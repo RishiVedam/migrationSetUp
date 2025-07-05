@@ -1,0 +1,2 @@
+ALTER TABLE employee
+ADD COLUMN salary int DEFAULT 100;

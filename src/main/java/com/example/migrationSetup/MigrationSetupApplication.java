@@ -14,10 +14,4 @@ public class MigrationSetupApplication {
 
 }
 
-@RestController
- class test{
-	@GetMapping("/test")
-	public String testing(){
-		return "running well";
-	}
-}
+

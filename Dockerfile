@@ -1,13 +1,13 @@
-FROM openjdk:21-jdk-slim
 
-# Set working directory
+FROM openjdk:21-jdk-slim
 WORKDIR /app
 
-# Copy the Spring Boot jar to the container
+COPY pom.xml .
 COPY target/migrationSetup-0.0.1-SNAPSHOT.jar app.jar
+COPY src/main/resources/db/migration ./db/migration
 
-# Expose the default Spring Boot port
-EXPOSE 8080
+RUN apt-get update && apt-get install -y maven
 
-# Run the application
+
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
